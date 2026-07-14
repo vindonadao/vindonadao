@@ -38,7 +38,7 @@ Venho da **automação industrial crítica** (instrumentação e fiscalização 
 
 | Projeto | O quê | No ar |
 |---------|-------|-------|
-| **Gabriel Nabi** | Site de fotógrafo pet — +3,2× contato qualificado | [gabrielnabi.donadaolabs.com](https://gabrielnabi.donadaolabs.com) |
+| **Gabriel Nabi** | Site de fotógrafo pet — +3,2× contato qualificado | [gabrielnabi.com.br](https://gabrielnabi.com.br) |
 | **Diskat Presentes** | E-commerce — checkout em menos de 90s | [diskatpresentes.com.br](https://diskatpresentes.com.br) |
 | **Cali Garage** | Site de oficina — mais orçamento pela web | [caligarage.donadaolabs.com](https://caligarage.donadaolabs.com) |
 
