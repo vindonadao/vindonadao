@@ -1,0 +1,957 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nosso apartamento</title>
+<meta name="description" content="O que falta comprar pro nosso apê no Embaré, em Santos.">
+<meta name="theme-color" content="#FBF6EE">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Nosso apartamento">
+<meta property="og:description" content="O que falta comprar pro apê no Embaré. Toque nos cômodos e marque o que já foi comprado.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2311756C'/%3E%3Cpath d='M14 31 32 15l18 16v19H14z' fill='%23FBF6EE'/%3E%3Crect x='27' y='36' width='10' height='14' rx='2' fill='%23F0705A'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap">
+<style>
+/* Layout: uma coluna no celular (planta no centro, itens num painel que sobe de baixo);
+   no desktop, planta à esquerda e painel fixo à direita. */
+:root{
+  --creme:#FBF6EE;
+  --creme-2:#F5EEE3;
+  --card:#FFFFFF;
+  --ink:#22393A;
+  --ink-2:#5A6D6C;
+  --linha:#ECE2D3;
+  --agua:#1E9C8F;
+  --agua-forte:#11756C;
+  --agua-clara:#D6EFEA;
+  --agua-bem-clara:#EDF7F5;
+  --coral:#F0705A;
+  --coral-clara:#FDE6E0;
+  --coral-texto:#B4412D;
+  --verde:#2A7F49;
+  --verde-bg:#E2F3E7;
+  --verde-borda:#BFE2CB;
+  --amarelo:#7E5900;
+  --amarelo-bg:#FFF0C2;
+  --cinza-texto:#6D685F;
+  --parede:#34494A;
+  --movel:#A4BBB7;
+
+  --font:"Nunito", ui-rounded, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --r-xl:26px;
+  --r-lg:20px;
+  --r-md:14px;
+  --sombra:0 1px 2px rgba(34,57,58,.05), 0 8px 24px rgba(34,57,58,.07);
+  --sombra-forte:0 2px 4px rgba(34,57,58,.06), 0 14px 36px rgba(34,57,58,.12);
+  color-scheme:light;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+html.travado,html.travado body{overflow:hidden}
+body{
+  margin:0;background:var(--creme);color:var(--ink);
+  font-family:var(--font);font-size:16px;line-height:1.45;
+  -webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;
+}
+h1,h2,h3,p{margin:0}
+button{font:inherit;color:inherit}
+a{color:inherit}
+.ico{width:1em;height:1em;flex:none}
+:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
+
+.pagina{
+  max-width:1120px;margin:0 auto;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));
+  padding-right:max(16px, env(safe-area-inset-right, 0px));
+  padding-block:max(24px, env(safe-area-inset-top, 0px)) max(32px, env(safe-area-inset-bottom, 0px));
+  display:flex;flex-direction:column;gap:20px;
+}
+
+/* ---------- Topo ---------- */
+.topo{display:grid;gap:8px}
+.sobretitulo{font-size:13px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--agua-forte)}
+h1{font-size:clamp(34px, 9.5vw, 52px);font-weight:900;letter-spacing:-.025em;line-height:1.02;text-wrap:balance}
+.topo-linha{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;color:var(--ink-2);font-weight:700;font-size:15px}
+.link-fotos{
+  display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 16px;
+  border-radius:999px;background:var(--coral-clara);color:var(--coral-texto);
+  font-weight:800;font-size:14px;text-decoration:none;
+}
+.link-fotos:hover{background:#FBD9D0}
+
+/* ---------- Resumo ---------- */
+.resumo{
+  position:relative;overflow:hidden;isolation:isolate;
+  background:var(--agua-forte);color:#fff;border-radius:var(--r-xl);
+  padding:22px 20px 18px;display:grid;gap:14px;
+  box-shadow:0 14px 34px rgba(17,117,108,.26);
+}
+.resumo::before{
+  content:"";position:absolute;z-index:-1;width:240px;height:240px;border-radius:50%;
+  right:-90px;top:-110px;background:var(--agua);opacity:.55;
+}
+.resumo-rotulo{font-size:13px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;opacity:.85}
+.resumo-total{font-size:clamp(25px, 7.4vw, 42px);font-weight:900;line-height:1.08;letter-spacing:-.015em;font-variant-numeric:tabular-nums}
+.resumo-total .nw{white-space:nowrap}
+.resumo-total .a{font-size:.62em;font-weight:700;opacity:.8;margin:0 .1em}
+.barra{height:12px;border-radius:999px;background:rgba(255,255,255,.2);overflow:hidden}
+.barra-fill{display:block;height:100%;width:0;border-radius:inherit;background:var(--coral);transition:width .5s cubic-bezier(.22,.9,.3,1)}
+.resumo-prog{font-weight:800;font-size:15px;margin-top:-6px}
+.resumo-split{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.resumo-split > div{background:rgba(255,255,255,.13);border-radius:var(--r-md);padding:12px 14px;display:grid;gap:2px;min-width:0}
+.resumo-split span{font-size:13px;font-weight:700;opacity:.88}
+.resumo-split strong{font-size:clamp(19px, 5.6vw, 26px);font-weight:900;font-variant-numeric:tabular-nums;white-space:nowrap}
+.resumo-nota{font-size:13px;opacity:.82}
+
+/* ---------- Planta ---------- */
+.miolo{display:grid;gap:20px}
+.planta-card{background:var(--card);border-radius:var(--r-xl);box-shadow:var(--sombra);padding:20px 14px 14px;display:grid;gap:14px}
+.planta-cabeca{display:grid;gap:2px;padding:0 4px}
+.planta-cabeca h2{font-size:21px;font-weight:900;letter-spacing:-.01em}
+.planta-cabeca p{color:var(--ink-2);font-weight:700;font-size:15px}
+.planta{position:relative;width:100%;max-width:540px;margin:0 auto;aspect-ratio:360/500;container-type:inline-size}
+.planta svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.planta-nota{text-align:center;font-size:12.5px;color:var(--ink-2);font-weight:600}
+
+.piso{transition:fill .25s}
+.piso[data-room="sala"]{fill:#DAEEE9}
+.piso[data-room="cozinha"]{fill:#FBE4DA}
+.piso[data-room="casal"]{fill:#F3E7D4}
+.piso[data-room="banho"]{fill:#DCEAF0}
+.piso[data-room="criancas"]{fill:#ECE9E4}
+.piso.is-completo{fill:#E0F2E5}
+.piso.is-hover{fill:#CDEAE3}
+.piso.is-ativo{fill:#BFE5DC}
+.anel{fill:none;stroke:var(--coral);stroke-width:2.5;opacity:0;transition:opacity .2s}
+.anel.is-ativo{opacity:1}
+.moveis rect,.moveis circle,.moveis ellipse{fill:rgba(255,255,255,.62);stroke:var(--movel);stroke-width:1.4}
+.moveis path{fill:none;stroke:var(--movel);stroke-width:1.4;stroke-linecap:round}
+.moveis .tv{fill:var(--parede);stroke:none}
+.porta{fill:none;stroke:#8FA6A2;stroke-width:1.3}
+.porta-folha{fill:none;stroke:#8FA6A2;stroke-width:2;stroke-linecap:round}
+.parede-ext{fill:none;stroke:var(--parede);stroke-width:7;stroke-linecap:square;stroke-linejoin:miter}
+.parede-int{fill:none;stroke:var(--parede);stroke-width:4;stroke-linecap:square}
+.janela{fill:#EEF7FA;stroke:var(--parede);stroke-width:1.2}
+.janela-vidro{stroke:#7FA7B3;stroke-width:1.2}
+
+.comodo{
+  position:absolute;appearance:none;-webkit-appearance:none;background:transparent;border:0;
+  padding:0;margin:0;cursor:pointer;border-radius:6px;
+}
+.comodo:focus{outline:none}
+.chip{
+  position:absolute;transform:translate(-50%,-50%);
+  width:max-content;max-width:calc(100% - 10px);
+  display:grid;gap:1px;justify-items:center;text-align:center;
+  padding:6px 10px 7px;border-radius:12px;background:rgba(255,255,255,.95);
+  box-shadow:0 1px 2px rgba(34,57,58,.08), 0 4px 12px rgba(34,57,58,.10);
+  transition:transform .2s cubic-bezier(.22,.9,.3,1), box-shadow .2s;
+  pointer-events:none;
+}
+.chip-nome{font-weight:900;font-size:clamp(11.5px, 3.6cqi, 15.5px);line-height:1.2;color:var(--ink);text-wrap:balance}
+.chip-status{font-weight:800;font-size:clamp(10.5px, 3.2cqi, 13.5px);line-height:1.25;color:var(--coral-texto);text-wrap:balance}
+.chip-status.ok{color:var(--verde)}
+.chip-status.cinza{color:var(--cinza-texto)}
+.comodo--pronto .chip{background:rgba(247,245,241,.97)}
+.comodo--pronto .chip-nome{color:var(--cinza-texto)}
+.comodo:hover .chip{transform:translate(-50%,-50%) scale(1.03)}
+.comodo.is-ativo .chip{transform:translate(-50%,-50%) scale(1.06);box-shadow:0 0 0 2.5px var(--coral), 0 8px 18px rgba(34,57,58,.16)}
+.comodo:focus-visible .chip{box-shadow:0 0 0 3px var(--agua-forte), 0 8px 18px rgba(34,57,58,.16)}
+
+/* ---------- Painel (bottom sheet no celular) ---------- */
+.fundo{
+  position:fixed;inset:0;z-index:30;background:rgba(18,42,41,.42);
+  opacity:0;pointer-events:none;transition:opacity .3s;
+}
+.fundo.is-on{opacity:1;pointer-events:auto}
+.painel{
+  position:fixed;z-index:40;left:0;right:0;bottom:0;
+  max-height:88vh;max-height:88dvh;
+  display:flex;flex-direction:column;
+  background:var(--creme-2);border-radius:var(--r-xl) var(--r-xl) 0 0;
+  box-shadow:0 -12px 40px rgba(18,42,41,.22);
+  transform:translateY(104%);visibility:hidden;
+  transition:transform .36s cubic-bezier(.22,.9,.3,1), visibility 0s linear .36s;
+}
+.painel.is-aberto{transform:none;visibility:visible;transition:transform .36s cubic-bezier(.22,.9,.3,1), visibility 0s}
+.painel-cabeca{
+  flex:none;
+  padding:8px max(16px, env(safe-area-inset-right, 0px)) 0 max(16px, env(safe-area-inset-left, 0px));
+  touch-action:none;
+}
+.alca{width:46px;height:5px;border-radius:999px;background:#D8CDBD;margin:2px auto 12px}
+.painel-head{display:grid;grid-template-columns:54px minmax(0,1fr) 44px;gap:12px;align-items:center}
+.painel-emoji{width:54px;height:54px;border-radius:16px;background:var(--card);display:grid;place-items:center;font-size:28px;box-shadow:var(--sombra)}
+.painel-head h2{font-size:22px;font-weight:900;line-height:1.15;letter-spacing:-.01em;text-wrap:balance}
+.painel-sub{font-size:14px;color:var(--ink-2);font-weight:700;font-variant-numeric:tabular-nums}
+.fechar{
+  width:44px;height:44px;border-radius:50%;border:0;background:var(--card);
+  display:grid;place-items:center;cursor:pointer;box-shadow:var(--sombra);font-size:20px;
+}
+.abas{
+  flex:none;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;
+  padding:14px max(16px, env(safe-area-inset-right, 0px)) 12px max(16px, env(safe-area-inset-left, 0px));
+}
+.abas::-webkit-scrollbar{display:none}
+.aba{
+  flex:none;min-height:40px;padding:0 14px;border-radius:999px;cursor:pointer;
+  border:1.5px solid var(--linha);background:var(--card);font-weight:800;font-size:14px;white-space:nowrap;
+}
+.aba[aria-current="true"]{background:var(--agua-forte);border-color:var(--agua-forte);color:#fff}
+.painel-corpo{
+  flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;
+  display:grid;gap:12px;align-content:start;
+  padding:2px max(16px, env(safe-area-inset-right, 0px)) calc(24px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+}
+
+.pronto{
+  display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;align-items:center;
+  background:#ECE9E4;border-radius:var(--r-lg);padding:14px 16px;color:var(--cinza-texto);
+}
+.pronto-ico{font-size:26px}
+.pronto strong{display:block;color:#4E4A44;font-size:16px;font-weight:900}
+.pronto p{font-size:14px;font-weight:600}
+.subtitulo-lista{font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);padding:6px 4px 0}
+
+/* ---------- Card de item ---------- */
+.item{
+  background:var(--card);border-radius:var(--r-lg);padding:14px;display:grid;gap:12px;
+  border:1.5px solid transparent;box-shadow:var(--sombra);transition:background .2s, border-color .2s;
+}
+.item.is-comprado{background:#F7FCF8;border-color:var(--verde-borda)}
+.item-topo{display:grid;grid-template-columns:50px minmax(0,1fr);gap:12px;align-items:start}
+.item-emoji{
+  position:relative;width:50px;height:50px;border-radius:15px;background:var(--agua-bem-clara);
+  display:grid;place-items:center;font-size:25px;
+}
+.item.is-comprado .item-emoji::after{
+  content:"✓";position:absolute;right:-5px;bottom:-5px;width:22px;height:22px;border-radius:50%;
+  background:var(--verde);color:#fff;font-size:12px;font-weight:900;display:grid;place-items:center;border:2px solid #fff;
+}
+.item-info{display:grid;gap:5px;min-width:0}
+.item h3{font-size:16.5px;font-weight:800;line-height:1.25}
+.item-qtd{font-size:13px;font-weight:800;color:var(--ink-2)}
+.preco{font-size:16px;font-weight:900;color:var(--agua-forte);font-variant-numeric:tabular-nums}
+.item.is-comprado .preco{color:var(--verde)}
+.selos{display:flex;flex-wrap:wrap;gap:6px}
+.selo{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:800;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.selo--ok{background:var(--verde-bg);color:var(--verde)}
+.selo--est{background:var(--amarelo-bg);color:var(--amarelo)}
+.lembretes{list-style:none;margin:2px 0 0;padding:0;display:grid;gap:2px;font-size:13.5px;font-weight:700;color:var(--ink-2)}
+.acoes{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px}
+.btn-loja{
+  display:inline-flex;align-items:center;gap:7px;min-height:44px;padding:0 18px;border-radius:999px;
+  background:var(--agua-forte);color:#fff;font-weight:800;font-size:15px;text-decoration:none;
+}
+.btn-loja:hover{background:#0E655D}
+.sem-link{font-size:13.5px;font-weight:700;color:var(--ink-2)}
+.check{
+  position:relative;display:inline-flex;align-items:center;gap:9px;min-height:44px;padding:0 16px 0 12px;
+  border-radius:999px;border:1.5px solid var(--linha);background:var(--card);
+  font-weight:800;font-size:15px;cursor:pointer;user-select:none;-webkit-user-select:none;margin-left:auto;
+}
+.check input{position:absolute;opacity:0;width:1px;height:1px;margin:0;pointer-events:none}
+.caixa{
+  width:22px;height:22px;border-radius:7px;border:2px solid #B5C4C1;background:#fff;
+  display:grid;place-items:center;transition:background .15s, border-color .15s;
+}
+.check input:checked + .caixa{background:var(--verde);border-color:var(--verde)}
+.check input:checked + .caixa::after{
+  content:"";width:10px;height:6px;border-left:2.5px solid #fff;border-bottom:2.5px solid #fff;
+  transform:translateY(-1px) rotate(-45deg);
+}
+.check input:focus-visible + .caixa{outline:3px solid var(--coral);outline-offset:2px}
+.item.is-comprado .check{background:var(--verde-bg);border-color:var(--verde-borda);color:var(--verde)}
+
+/* opções (lava e seca) */
+.opcoes{border:0;margin:0;padding:0;display:grid;gap:8px;min-width:0}
+.opcoes legend{padding:0 0 6px;font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.opcao{border:1.5px solid var(--linha);border-radius:var(--r-md);padding:10px 12px;display:grid;gap:8px;transition:border-color .15s, background .15s}
+.opcao.is-escolhida{border-color:var(--agua);background:var(--agua-bem-clara)}
+.opcao-escolha{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px;align-items:center;cursor:pointer;min-height:32px}
+.opcao-escolha input{position:absolute;opacity:0;width:1px;height:1px;margin:0;pointer-events:none}
+.radio{width:22px;height:22px;border-radius:50%;border:2px solid #B5C4C1;background:#fff;display:grid;place-items:center}
+.opcao-escolha input:checked + .radio{border-color:var(--agua-forte)}
+.opcao-escolha input:checked + .radio::after{content:"";width:11px;height:11px;border-radius:50%;background:var(--agua-forte)}
+.opcao-escolha input:focus-visible + .radio{outline:3px solid var(--coral);outline-offset:2px}
+.opcao-nome{font-weight:900;font-size:16px}
+.opcao-preco{font-weight:900;font-size:15px;color:var(--agua-forte);font-variant-numeric:tabular-nums;text-align:right}
+.opcao-rodape{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;padding-left:32px}
+.link-loja{display:inline-flex;align-items:center;gap:5px;min-height:36px;font-weight:800;font-size:14px;color:var(--agua-forte);text-decoration:none}
+.link-loja:hover{text-decoration:underline}
+.escolha-status{font-size:13.5px;font-weight:700;color:var(--ink-2)}
+
+/* ---------- O que já tem ---------- */
+.ja-tem{background:var(--card);border-radius:var(--r-xl);box-shadow:var(--sombra)}
+.ja-tem summary{
+  list-style:none;display:flex;align-items:center;gap:12px;min-height:60px;padding:14px 18px;cursor:pointer;
+  font-weight:900;font-size:17px;border-radius:var(--r-xl);
+}
+.ja-tem summary::-webkit-details-marker{display:none}
+.ja-tem-ico{width:38px;height:38px;border-radius:12px;background:var(--verde-bg);color:var(--verde);display:grid;place-items:center;font-size:19px;flex:none}
+.ja-tem-titulo{flex:1;min-width:0}
+.contador{white-space:nowrap;font-size:13px;font-weight:800;color:var(--ink-2);background:var(--creme-2);border-radius:999px;padding:3px 10px}
+.chev{font-size:20px;color:var(--ink-2);transition:transform .2s}
+.ja-tem[open] .chev{transform:rotate(180deg)}
+.ja-tem ul{list-style:none;margin:0;padding:0 18px 18px;display:flex;flex-wrap:wrap;gap:8px}
+.ja-tem li{background:var(--agua-bem-clara);border-radius:999px;padding:7px 13px;font-weight:700;font-size:14.5px}
+
+/* ---------- Dicas ---------- */
+.dicas{display:grid;gap:12px}
+.dicas h2{font-size:21px;font-weight:900;letter-spacing:-.01em;padding:0 4px}
+.dicas-grid{display:grid;grid-template-columns:repeat(2, minmax(0,1fr));gap:10px}
+.dica{background:var(--card);border-radius:var(--r-lg);box-shadow:var(--sombra);padding:14px;display:grid;gap:6px;align-content:start}
+.dica-ico{width:40px;height:40px;border-radius:12px;background:var(--agua-bem-clara);display:grid;place-items:center;font-size:21px}
+.dica--destaque .dica-ico{background:var(--coral-clara)}
+.dica h3{font-size:16px;font-weight:900}
+.dica p{font-size:14px;line-height:1.4;color:var(--ink-2);font-weight:600}
+.dica-extra{font-size:13px;font-weight:800;color:var(--agua-forte)}
+.dica--destaque .dica-extra{color:var(--coral-texto)}
+
+.rodape{text-align:center;font-size:13px;color:var(--ink-2);font-weight:600;padding-top:4px}
+
+/* ---------- Desktop ---------- */
+@media (min-width:720px){
+  .dicas-grid{grid-template-columns:repeat(4, minmax(0,1fr))}
+  .resumo{padding:26px 28px 22px}
+}
+@media (min-width:960px){
+  .pagina{gap:24px;padding-block:40px 48px}
+  .miolo{grid-template-columns:minmax(0,1fr) 430px;gap:24px;align-items:start}
+  .planta-card{padding:24px 24px 18px}
+  .painel{
+    position:sticky;top:16px;left:auto;right:auto;bottom:auto;z-index:auto;
+    max-height:calc(100vh - 32px);transform:none;visibility:visible;transition:none;
+    border-radius:var(--r-xl);box-shadow:var(--sombra);
+  }
+  .painel-cabeca{padding:20px 20px 0;touch-action:auto}
+  .alca,.fechar{display:none}
+  .painel-head{grid-template-columns:54px minmax(0,1fr)}
+  .abas{padding:14px 20px 12px;flex-wrap:wrap}
+  .painel-corpo{padding:2px 20px 20px}
+  .fundo{display:none}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition-duration:.01ms !important;animation:none !important}
+}
+</style>
+</head>
+<body>
+<div class="pagina">
+
+  <header class="topo">
+    <p class="sobretitulo">Embaré · Santos</p>
+    <h1>Nosso apartamento</h1>
+    <div class="topo-linha">
+      <span>2 quartos · 60 m² · mobiliado</span>
+      <a class="link-fotos" href="https://www.zapimoveis.com.br/imovel/aluguel-apartamento-2-quartos-mobiliado-embare-santos-sp-60m2-id-2915973055/" target="_blank" rel="noopener">📷 Ver fotos do apê</a>
+    </div>
+  </header>
+
+  <section class="resumo" aria-label="Resumo das compras">
+    <p class="resumo-rotulo">Total estimado</p>
+    <p class="resumo-total" id="total"></p>
+    <div class="barra" id="barra" role="progressbar" aria-label="Itens comprados" aria-valuemin="0" aria-valuemax="18" aria-valuenow="0">
+      <span class="barra-fill" id="barra-fill"></span>
+    </div>
+    <p class="resumo-prog" id="prog" aria-live="polite"></p>
+    <div class="resumo-split">
+      <div><span>Já gasto</span><strong id="gasto"></strong></div>
+      <div><span>Falta gastar</span><strong id="falta"></strong></div>
+    </div>
+    <p class="resumo-nota">A conta usa a média do preço de cada item.</p>
+  </section>
+
+  <div class="miolo">
+    <section class="planta-card" aria-labelledby="planta-titulo">
+      <div class="planta-cabeca">
+        <h2 id="planta-titulo">Planta do apê</h2>
+        <p>Toque num cômodo pra ver o que falta</p>
+      </div>
+
+      <div class="planta" id="planta">
+        <svg viewBox="0 0 360 500" aria-hidden="true" focusable="false">
+          <g class="pisos">
+            <rect class="piso" data-room="casal" x="10" y="10" width="190" height="180"/>
+            <rect class="piso" data-room="criancas" x="200" y="10" width="150" height="180"/>
+            <rect class="piso" data-room="banho" x="10" y="190" width="125" height="130"/>
+            <rect class="piso" data-room="cozinha" x="10" y="320" width="125" height="170"/>
+            <rect class="piso" data-room="sala" x="135" y="190" width="215" height="300"/>
+          </g>
+
+          <g class="moveis">
+            <!-- quarto do casal -->
+            <rect x="15" y="40" width="18" height="112" rx="2"/>
+            <path d="M15 96 H33"/>
+            <rect x="40" y="22" width="16" height="16" rx="3"/>
+            <rect x="150" y="22" width="16" height="16" rx="3"/>
+            <rect x="58" y="17" width="90" height="8" rx="3"/>
+            <rect x="60" y="23" width="86" height="92" rx="6"/>
+            <rect x="66" y="30" width="34" height="15" rx="5"/>
+            <rect x="106" y="30" width="34" height="15" rx="5"/>
+            <path d="M60 62 H146"/>
+            <!-- quarto das crianças -->
+            <rect x="210" y="20" width="40" height="70" rx="5"/>
+            <rect x="216" y="26" width="28" height="12" rx="4"/>
+            <rect x="300" y="20" width="40" height="70" rx="5"/>
+            <rect x="306" y="26" width="28" height="12" rx="4"/>
+            <rect x="266" y="20" width="18" height="16" rx="3"/>
+            <!-- banheiro + área -->
+            <rect x="15" y="196" width="34" height="34" rx="2"/>
+            <path d="M15 196 L49 230 M49 196 L15 230"/>
+            <rect x="58" y="196" width="22" height="8" rx="2"/>
+            <ellipse cx="69" cy="215" rx="9" ry="11"/>
+            <rect x="15" y="284" width="30" height="30" rx="4"/>
+            <circle cx="30" cy="299" r="10"/>
+            <rect x="51" y="290" width="26" height="24" rx="3"/>
+            <!-- cozinha -->
+            <rect x="15" y="326" width="30" height="32" rx="3"/>
+            <path d="M15 340 H45"/>
+            <rect x="15" y="460" width="115" height="25" rx="2"/>
+            <rect x="30" y="464" width="26" height="17" rx="3"/>
+            <rect x="74" y="462" width="30" height="21" rx="2"/>
+            <circle cx="81" cy="468" r="3.5"/>
+            <circle cx="97" cy="468" r="3.5"/>
+            <circle cx="81" cy="477" r="3.5"/>
+            <circle cx="97" cy="477" r="3.5"/>
+            <!-- sala -->
+            <rect x="262" y="198" width="76" height="10" rx="2"/>
+            <rect class="tv" x="272" y="196" width="56" height="4" rx="1"/>
+            <rect x="278" y="224" width="34" height="16" rx="4"/>
+            <rect x="262" y="256" width="66" height="26" rx="5"/>
+            <rect x="256" y="278" width="78" height="10" rx="4"/>
+            <rect x="256" y="254" width="10" height="34" rx="4"/>
+            <rect x="324" y="254" width="10" height="34" rx="4"/>
+            <path d="M284 258 V280 M306 258 V280"/>
+            <circle cx="190" cy="415" r="22"/>
+            <rect x="182" y="382" width="16" height="10" rx="3"/>
+            <rect x="182" y="438" width="16" height="10" rx="3"/>
+            <rect x="157" y="407" width="10" height="16" rx="3"/>
+            <rect x="213" y="407" width="10" height="16" rx="3"/>
+          </g>
+
+          <g class="portas">
+            <path class="porta" d="M194 156 A34 34 0 0 0 160 190"/>
+            <path class="porta-folha" d="M194 190 V156"/>
+            <path class="porta" d="M246 156 A34 34 0 0 0 212 190"/>
+            <path class="porta-folha" d="M246 190 V156"/>
+            <path class="porta" d="M103 232 A32 32 0 0 1 135 200"/>
+            <path class="porta-folha" d="M135 232 H103"/>
+            <path class="porta" d="M92 290 A30 30 0 0 1 122 320"/>
+            <path class="porta-folha" d="M92 320 V290"/>
+            <path class="porta" d="M335 450 A40 40 0 0 0 295 490"/>
+            <path class="porta-folha" d="M335 490 V450"/>
+          </g>
+
+          <g class="paredes">
+            <path class="parede-int" d="M10 190 H160 M194 190 H212 M246 190 H350 M200 10 V190 M135 190 V200 M135 232 V350 M135 450 V490 M10 320 H92 M122 320 H135"/>
+            <path class="parede-ext" d="M295 490 H10 V10 H350 V490 H335"/>
+          </g>
+
+          <g class="janelas">
+            <rect class="janela" x="60" y="6.5" width="90" height="7"/>
+            <path class="janela-vidro" d="M60 10 H150"/>
+            <rect class="janela" x="245" y="6.5" width="70" height="7"/>
+            <path class="janela-vidro" d="M245 10 H315"/>
+            <rect class="janela" x="346.5" y="300" width="7" height="110"/>
+            <path class="janela-vidro" d="M350 300 V410"/>
+            <rect class="janela" x="6.5" y="370" width="7" height="60"/>
+            <path class="janela-vidro" d="M10 370 V430"/>
+            <rect class="janela" x="6.5" y="245" width="7" height="30"/>
+            <path class="janela-vidro" d="M10 245 V275"/>
+          </g>
+
+          <g class="aneis">
+            <rect class="anel" data-room="casal" x="18" y="18" width="174" height="164" rx="10"/>
+            <rect class="anel" data-room="criancas" x="208" y="18" width="134" height="164" rx="10"/>
+            <rect class="anel" data-room="banho" x="18" y="198" width="109" height="114" rx="10"/>
+            <rect class="anel" data-room="cozinha" x="18" y="328" width="109" height="154" rx="10"/>
+            <rect class="anel" data-room="sala" x="143" y="198" width="199" height="284" rx="10"/>
+          </g>
+        </svg>
+      </div>
+
+      <p class="planta-nota">Desenho ilustrativo, fora de escala.</p>
+    </section>
+
+    <aside class="painel" id="painel" aria-labelledby="painel-titulo">
+      <div class="painel-cabeca" id="painel-cabeca">
+        <div class="alca" aria-hidden="true"></div>
+        <div class="painel-head">
+          <div class="painel-emoji" id="painel-emoji" aria-hidden="true"></div>
+          <div>
+            <h2 id="painel-titulo"></h2>
+            <p class="painel-sub" id="painel-sub"></p>
+          </div>
+          <button class="fechar" id="fechar" type="button" aria-label="Fechar">
+            <svg class="ico" viewBox="0 0 20 20" aria-hidden="true"><path d="M5 5l10 10M15 5 5 15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+      </div>
+      <nav class="abas" id="abas" aria-label="Cômodos"></nav>
+      <div class="painel-corpo" id="painel-corpo"></div>
+    </aside>
+  </div>
+
+  <details class="ja-tem" id="ja-tem">
+    <summary>
+      <span class="ja-tem-ico" aria-hidden="true">✓</span>
+      <span class="ja-tem-titulo">O que o apartamento já tem</span>
+      <span class="contador" id="ja-tem-contador"></span>
+      <span class="chev" aria-hidden="true">
+        <svg class="ico" viewBox="0 0 20 20"><path d="m5.5 7.5 4.5 4.5 4.5-4.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+    </summary>
+    <ul id="ja-tem-lista"></ul>
+  </details>
+
+  <section class="dicas" aria-labelledby="dicas-titulo">
+    <h2 id="dicas-titulo">Dicas rápidas</h2>
+    <div class="dicas-grid">
+      <article class="dica">
+        <span class="dica-ico" aria-hidden="true">⚡</span>
+        <h3>Voltagem</h3>
+        <p>Santos é 127 V (110). Geladeira, lava e seca e micro-ondas têm que ser 110.</p>
+      </article>
+      <article class="dica">
+        <span class="dica-ico" aria-hidden="true">💸</span>
+        <h3>Pix</h3>
+        <p>Costuma ter de 3% a 5% de desconto.</p>
+        <p class="dica-extra" id="dica-pix"></p>
+      </article>
+      <article class="dica">
+        <span class="dica-ico" aria-hidden="true">🚚</span>
+        <h3>Frete</h3>
+        <p>Itens grandes podem ter frete de R$&nbsp;50 a R$&nbsp;200.</p>
+      </article>
+      <article class="dica dica--destaque">
+        <span class="dica-ico" aria-hidden="true">🏷️</span>
+        <h3>Black Friday</h3>
+        <p>Fim de novembro. Geladeira, TV e lava e seca costumam baixar bastante.</p>
+        <p class="dica-extra" id="dica-bf"></p>
+      </article>
+    </div>
+  </section>
+
+  <footer class="rodape">Preços pesquisados em 29/10/2026. Podem mudar.</footer>
+</div>
+
+<div class="fundo" id="fundo"></div>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ---------- Dados ---------- */
+  var LEMBRETES = {
+    volt:  '⚡ Tem que ser 127 V (110)',
+    medir: '📏 Meça o espaço antes de comprar',
+    bf:    '🏷️ Costuma baixar na Black Friday'
+  };
+
+  var COMODOS = [
+    { id: 'sala', nome: 'Sala', aba: 'Sala', emoji: '🛋️', itens: [
+      { id: 'sofa', nome: 'Sofá 3 lugares retrátil e reclinável', emoji: '🛋️', min: 1200, max: 3500, conf: false,
+        url: 'https://www.mobly.com.br/sofa-3-lugares', lembretes: ['medir'] },
+      { id: 'tv', nome: 'TV 65 polegadas 4K', emoji: '📺', min: 3180, max: 4500, conf: true,
+        url: 'https://www.zoom.com.br/tv/tamanho-65-polegadas/ultra-definicao-4k-', lembretes: ['bf'] },
+      { id: 'mesa', nome: 'Mesa com 4 cadeiras', emoji: '🪑', min: 400, max: 1000, conf: true,
+        url: 'https://www.madeiramadeira.com.br/moveis/moveis-para-sala-de-jantar/conjuntos-de-mesa-com-4-cadeiras', lembretes: ['medir'] },
+      { id: 'cortina-sala', nome: 'Cortina blackout', emoji: '🪟', min: 120, max: 120, conf: true,
+        url: 'https://casanix.com.br/' }
+    ]},
+    { id: 'cozinha', nome: 'Cozinha', aba: 'Cozinha', emoji: '🍳', itens: [
+      { id: 'geladeira', nome: 'Geladeira 1 porta frost free 300 L', emoji: '🧊', min: 1900, max: 2900, conf: true,
+        url: 'https://www.amazon.com.br/geladeira-frost-free-300l/s?k=geladeira+frost+free+300l', lembretes: ['volt', 'medir', 'bf'] },
+      { id: 'microondas', nome: 'Micro-ondas 20 L', emoji: '🍿', min: 430, max: 550, conf: true,
+        url: 'https://www.amazon.com.br/micro-ondas-20-litros-110v/s?k=micro-ondas+20+litros+110v', lembretes: ['volt'] },
+      { id: 'panelas', nome: 'Jogo de panelas antiaderente Tramontina, 10 peças', emoji: '🍳', min: 250, max: 250, conf: true,
+        url: 'https://m.magazineluiza.com.br/busca/jogo+de+panelas+antiaderente/' },
+      { id: 'jantar', nome: 'Aparelho de jantar 30 peças', emoji: '🍽️', min: 240, max: 270, conf: true,
+        url: 'https://m.magazineluiza.com.br/busca/aparelho+de+jantar+30+pecas/' },
+      { id: 'faqueiro', nome: 'Faqueiro Tramontina 24 peças', emoji: '🍴', min: 109, max: 109, conf: true,
+        url: 'https://www.tramontina.com.br/faqueiro-tramontina-buzios-em-aco-inox-com-detalhe-24-pecas/23799071.html' },
+      { id: 'utensilios', nome: 'Copos, escorredor, tábua e conchas', emoji: '🥄', min: 300, max: 500, conf: false, url: null },
+      { id: 'lixeira', nome: 'Lixeira', emoji: '🗑️', min: 50, max: 50, conf: false, url: null }
+    ]},
+    { id: 'casal', nome: 'Quarto do casal', aba: 'Casal', emoji: '🛏️', itens: [
+      { id: 'cama', nome: 'Cama box casal com colchão de molas ensacadas', emoji: '🛏️', min: 900, max: 1330, conf: true,
+        url: 'https://www.esplanadamoveis.com.br/produtos/cama-box-casal-colchao-molas-ensacadas-real-138x188x65cm-suporta-ate-130kg-por-pessoa-btq59/' },
+      { id: 'jogo-cama', nome: 'Jogo de cama casal 4 peças, percal 300 fios', qtd: '2 unidades', emoji: '🛌', min: 172, max: 172, conf: true,
+        url: 'https://www.decoramaiscasa.com.br/jogos-de-cama/jogos-casalpadrao-4pc' },
+      { id: 'travesseiros', nome: 'Dois travesseiros', emoji: '☁️', min: 150, max: 150, conf: false,
+        url: 'https://www.magazineluiza.com.br/busca/travesseiro+casal/' },
+      { id: 'cortina-casal', nome: 'Cortina blackout', emoji: '🪟', min: 120, max: 120, conf: true,
+        url: 'https://casanix.com.br/' }
+    ]},
+    { id: 'criancas', nome: 'Quarto das crianças', aba: 'Crianças', emoji: '🧸', pronto: true, itens: [
+      { id: 'cortina-criancas', nome: 'Cortina blackout', emoji: '🪟', min: 120, max: 120, conf: true,
+        url: 'https://casanix.com.br/' }
+    ]},
+    { id: 'banho', nome: 'Banheiro + área de serviço', aba: 'Banheiro', emoji: '🛁', itens: [
+      { id: 'lavaseca', nome: 'Lava e seca 12 kg', emoji: '🫧', lembretes: ['volt', 'bf'], opcoes: [
+        { id: 'midea', nome: 'Midea', min: 2890, max: 2890, conf: true,
+          url: 'https://www.amazon.com.br/lava-e-seca-midea-12kg/s?k=lava+e+seca+midea+12kg' },
+        { id: 'lg', nome: 'LG', min: 3690, max: 4090, conf: true,
+          url: 'https://www.amazon.com.br/maquina-lava-e-seca-lg-12kg/s?k=maquina+lava+e+seca+lg+12kg' }
+      ]},
+      { id: 'toalhas', nome: 'Kit 4 toalhas', emoji: '🧺', min: 70, max: 70, conf: true,
+        url: 'https://casanix.com.br/' }
+    ]}
+  ];
+
+  /* Posição de cada cômodo na planta (unidades do viewBox 360 × 500) e onde fica a etiqueta */
+  var PLANTA = { w: 360, h: 500, comodos: {
+    casal:    { x: 10,  y: 10,  w: 190, h: 180, lx: 100, ly: 150, rotulo: 'Quarto do casal' },
+    criancas: { x: 200, y: 10,  w: 150, h: 180, lx: 275, ly: 128, rotulo: 'Quarto das crianças' },
+    banho:    { x: 10,  y: 190, w: 125, h: 130, lx: 72,  ly: 258, rotulo: 'Banheiro + área' },
+    cozinha:  { x: 10,  y: 320, w: 125, h: 170, lx: 72,  ly: 398, rotulo: 'Cozinha' },
+    sala:     { x: 135, y: 190, w: 215, h: 300, lx: 248, ly: 342, rotulo: 'Sala' }
+  }};
+
+  var JA_TEM = [
+    '🚪 Guarda-roupas', '🗄️ Armários da cozinha', '🔥 Fogão', '☕ Cafeteira', '🥤 Liquidificador',
+    '🪵 Rack da sala', '❄️ Ar-condicionado / ventilador', '🛏️ Camas e roupa de cama das crianças',
+    '👕 Ferro de passar', '🧽 Material de limpeza'
+  ];
+
+  /* ---------- Estado salvo no aparelho ---------- */
+  var CHAVE = 'nosso-apto-santos:v1';
+  var estado = { comprados: {}, escolhas: {} };
+  try {
+    var salvo = JSON.parse(localStorage.getItem(CHAVE));
+    if (salvo && typeof salvo === 'object') {
+      estado.comprados = salvo.comprados || {};
+      estado.escolhas = salvo.escolhas || {};
+    }
+  } catch (e) { /* sem armazenamento: segue sem salvar */ }
+  function salvar() {
+    try { localStorage.setItem(CHAVE, JSON.stringify(estado)); } catch (e) { /* ignora */ }
+  }
+
+  /* ---------- Contas ---------- */
+  var brl = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: 0, maximumFractionDigits: 0 });
+  function reais(v) { return brl.format(Math.round(v)).replace(/\s/g, ' '); }
+  function faixaTexto(a, b) { return a === b ? reais(a) : reais(a) + ' a ' + reais(b); }
+
+  function faixa(item) {
+    if (item.opcoes) {
+      var op = opcaoEscolhida(item);
+      if (op) return [op.min, op.max];
+      return [Math.min.apply(null, item.opcoes.map(function (o) { return o.min; })),
+              Math.max.apply(null, item.opcoes.map(function (o) { return o.max; }))];
+    }
+    return [item.min, item.max];
+  }
+  function opcaoEscolhida(item) {
+    var id = estado.escolhas[item.id];
+    for (var i = 0; i < item.opcoes.length; i++) if (item.opcoes[i].id === id) return item.opcoes[i];
+    return null;
+  }
+  function contas(itens) {
+    var c = { min: 0, max: 0, gasto: 0, falta: 0, feitos: 0, total: itens.length };
+    itens.forEach(function (it) {
+      var f = faixa(it), media = (f[0] + f[1]) / 2;
+      c.min += f[0]; c.max += f[1];
+      if (estado.comprados[it.id]) { c.gasto += media; c.feitos++; } else { c.falta += media; }
+    });
+    return c;
+  }
+  var TODOS = COMODOS.reduce(function (acc, c) { return acc.concat(c.itens); }, []);
+  function comodo(id) { for (var i = 0; i < COMODOS.length; i++) if (COMODOS[i].id === id) return COMODOS[i]; return null; }
+  function itemPorId(id) { for (var i = 0; i < TODOS.length; i++) if (TODOS[i].id === id) return TODOS[i]; return null; }
+  function faltamTexto(n) { return n === 1 ? 'Falta 1 item' : 'Faltam ' + n + ' itens'; }
+
+  /* ---------- Elementos ---------- */
+  function $(id) { return document.getElementById(id); }
+  var elPlanta = $('planta'), elPainel = $('painel'), elCorpo = $('painel-corpo'), elAbas = $('abas'),
+      elFundo = $('fundo'), elCabeca = $('painel-cabeca');
+  var desktop = window.matchMedia('(min-width: 960px)');
+  var ativo = null, aberto = false, ultimoBotao = null;
+
+  /* ---------- Resumo ---------- */
+  function renderResumo() {
+    var c = contas(TODOS);
+    $('total').innerHTML = '<span class="nw">' + reais(c.min) + '</span> <span class="a">a</span> <span class="nw">' + reais(c.max) + '</span>';
+    $('gasto').textContent = reais(c.gasto);
+    $('falta').textContent = reais(c.falta);
+    $('barra-fill').style.width = (c.feitos / c.total * 100) + '%';
+    var barra = $('barra');
+    barra.setAttribute('aria-valuemax', c.total);
+    barra.setAttribute('aria-valuenow', c.feitos);
+    $('prog').textContent = c.feitos === c.total ? 'Tudo comprado! 🎉' : c.feitos + ' de ' + c.total + ' itens comprados';
+    $('dica-pix').textContent = c.falta > 0 ? 'No que falta, dá ' + reais(c.falta * 0.03) + ' a ' + reais(c.falta * 0.05) + '.' : '';
+  }
+
+  /* ---------- Planta ---------- */
+  function pct(v, total) { return (v / total * 100) + '%'; }
+  function montarPlanta() {
+    COMODOS.forEach(function (cm) {
+      var g = PLANTA.comodos[cm.id];
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'comodo' + (cm.pronto ? ' comodo--pronto' : '');
+      b.dataset.room = cm.id;
+      b.style.left = pct(g.x, PLANTA.w);
+      b.style.top = pct(g.y, PLANTA.h);
+      b.style.width = pct(g.w, PLANTA.w);
+      b.style.height = pct(g.h, PLANTA.h);
+      b.innerHTML = '<span class="chip" style="left:' + pct(g.lx - g.x, g.w) + ';top:' + pct(g.ly - g.y, g.h) + '">' +
+        '<span class="chip-nome">' + cm.emoji + ' ' + g.rotulo + '</span><span class="chip-status-wrap"></span></span>';
+      b.addEventListener('click', function () { selecionar(cm.id, true, b); });
+      b.addEventListener('mouseenter', function () { piso(cm.id).classList.add('is-hover'); });
+      b.addEventListener('mouseleave', function () { piso(cm.id).classList.remove('is-hover'); });
+      elPlanta.appendChild(b);
+    });
+  }
+  function piso(id) { return elPlanta.querySelector('.piso[data-room="' + id + '"]'); }
+  function renderPlanta() {
+    COMODOS.forEach(function (cm) {
+      var c = contas(cm.itens), falta = c.total - c.feitos;
+      var b = elPlanta.querySelector('.comodo[data-room="' + cm.id + '"]');
+      var status, rotulo;
+      if (cm.pronto) {
+        status = '<span class="chip-status cinza">Já está tudo pronto aqui</span>' +
+          (falta ? '<span class="chip-status">Só falta a cortina</span>' : '<span class="chip-status ok">✓ Cortina comprada</span>');
+        rotulo = cm.nome + ': já está tudo pronto aqui' + (falta ? ', só falta a cortina' : '');
+      } else if (falta === 0) {
+        status = '<span class="chip-status ok">✓ Tudo comprado</span>';
+        rotulo = cm.nome + ': tudo comprado';
+      } else {
+        status = '<span class="chip-status">' + faltamTexto(falta) + '</span>';
+        rotulo = cm.nome + ': ' + faltamTexto(falta).toLowerCase();
+      }
+      b.querySelector('.chip-status-wrap').outerHTML = '<span class="chip-status-wrap" style="display:contents">' + status + '</span>';
+      b.setAttribute('aria-label', rotulo);
+      piso(cm.id).classList.toggle('is-completo', falta === 0 && !cm.pronto);
+    });
+  }
+  function marcarAtivo() {
+    elPlanta.querySelectorAll('.comodo').forEach(function (b) {
+      var on = b.dataset.room === ativo && (aberto || desktop.matches);
+      b.classList.toggle('is-ativo', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    elPlanta.querySelectorAll('.piso, .anel').forEach(function (el) {
+      el.classList.toggle('is-ativo', el.dataset.room === ativo && (aberto || desktop.matches));
+    });
+  }
+
+  /* ---------- Painel ---------- */
+  function selo(conf) {
+    return conf ? '<span class="selo selo--ok">✓ Preço confirmado</span>' : '<span class="selo selo--est">≈ Estimativa</span>';
+  }
+  var SETA = '<svg class="ico" viewBox="0 0 20 20" aria-hidden="true"><path d="M7 4.5h8.5V13M15.5 4.5 5 15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+  function htmlCheck(id) {
+    return '<label class="check" for="c-' + id + '">' +
+      '<input type="checkbox" id="c-' + id + '" data-comprado="' + id + '"' + (estado.comprados[id] ? ' checked' : '') + '>' +
+      '<span class="caixa" aria-hidden="true"></span><span>Comprado</span></label>';
+  }
+  function htmlLembretes(it) {
+    if (!it.lembretes || !it.lembretes.length) return '';
+    return '<ul class="lembretes">' + it.lembretes.map(function (k) { return '<li>' + LEMBRETES[k] + '</li>'; }).join('') + '</ul>';
+  }
+  function htmlItem(it) {
+    var f = faixa(it), comprado = !!estado.comprados[it.id];
+    var h = '<article class="item' + (comprado ? ' is-comprado' : '') + '" data-item="' + it.id + '">' +
+      '<div class="item-topo"><div class="item-emoji" aria-hidden="true">' + it.emoji + '</div><div class="item-info">' +
+      '<h3>' + it.nome + '</h3>' + (it.qtd ? '<p class="item-qtd">' + it.qtd + '</p>' : '') +
+      '<p class="preco" data-preco>' + faixaTexto(f[0], f[1]) + '</p>';
+
+    if (!it.opcoes) {
+      h += '<div class="selos">' + selo(it.conf) + '</div>' + htmlLembretes(it) + '</div></div>' +
+        '<div class="acoes">' +
+        (it.url
+          ? '<a class="btn-loja" href="' + it.url + '" target="_blank" rel="noopener">Ver na loja ' + SETA + '</a>'
+          : '<span class="sem-link">Dá pra achar em qualquer loja</span>') +
+        htmlCheck(it.id) + '</div></article>';
+      return h;
+    }
+
+    var escolhida = opcaoEscolhida(it);
+    h += htmlLembretes(it) + '</div></div><fieldset class="opcoes"><legend>Escolha uma</legend>';
+    it.opcoes.forEach(function (op) {
+      var sel = escolhida && escolhida.id === op.id, idIn = 'o-' + it.id + '-' + op.id;
+      h += '<div class="opcao' + (sel ? ' is-escolhida' : '') + '" data-opcao="' + op.id + '">' +
+        '<label class="opcao-escolha" for="' + idIn + '">' +
+        '<input type="radio" id="' + idIn + '" name="o-' + it.id + '" value="' + op.id + '" data-escolha="' + it.id + '"' + (sel ? ' checked' : '') + '>' +
+        '<span class="radio" aria-hidden="true"></span><span class="opcao-nome">' + op.nome + '</span>' +
+        '<span class="opcao-preco">' + faixaTexto(op.min, op.max) + '</span></label>' +
+        '<div class="opcao-rodape">' + selo(op.conf) +
+        '<a class="link-loja" href="' + op.url + '" target="_blank" rel="noopener">Ver na loja ' + SETA + '</a></div></div>';
+    });
+    h += '</fieldset><div class="acoes"><span class="escolha-status" data-escolha-status>' + textoEscolha(it) + '</span>' +
+      htmlCheck(it.id) + '</div></article>';
+    return h;
+  }
+  function textoEscolha(it) {
+    var op = opcaoEscolhida(it);
+    return op ? 'Escolhida: ' + op.nome : 'Ainda não escolheu';
+  }
+
+  function renderCabecaPainel() {
+    var cm = comodo(ativo), c = contas(cm.itens), falta = c.total - c.feitos;
+    $('painel-emoji').textContent = cm.emoji;
+    $('painel-titulo').textContent = cm.nome;
+    var sub;
+    if (falta === 0) sub = 'Tudo comprado aqui 🎉';
+    else if (cm.pronto) sub = 'Só falta a cortina · ' + faixaTexto(c.min, c.max);
+    else sub = faltamTexto(falta) + ' · ' + faixaTexto(c.min, c.max);
+    $('painel-sub').textContent = sub;
+  }
+  function renderAbas() {
+    elAbas.innerHTML = COMODOS.map(function (cm) {
+      return '<button type="button" class="aba" data-aba="' + cm.id + '"' + (cm.id === ativo ? ' aria-current="true"' : '') + '>' +
+        cm.emoji + ' ' + cm.aba + '</button>';
+    }).join('');
+    var atual = elAbas.querySelector('[aria-current="true"]');
+    if (atual && atual.scrollIntoView && !desktop.matches) atual.scrollIntoView({ block: 'nearest', inline: 'center' });
+  }
+  function renderPainel() {
+    var cm = comodo(ativo);
+    renderCabecaPainel();
+    renderAbas();
+    var h = '';
+    if (cm.pronto) {
+      h += '<div class="pronto"><span class="pronto-ico" aria-hidden="true">✨</span><div>' +
+        '<strong>Já está tudo pronto aqui</strong><p>Camas, colchões e roupa de cama a gente já tem.</p></div></div>' +
+        '<p class="subtitulo-lista">Só falta isso</p>';
+    }
+    h += cm.itens.map(htmlItem).join('');
+    elCorpo.innerHTML = h;
+    elCorpo.scrollTop = 0;
+  }
+
+  /* ---------- Abrir / fechar ---------- */
+  function selecionar(id, doUsuario, botao) {
+    ativo = id;
+    if (botao) ultimoBotao = botao;
+    renderPainel();
+    if (!desktop.matches && doUsuario) abrir();
+    marcarAtivo();
+  }
+  function abrir() {
+    if (aberto) return;
+    aberto = true;
+    elPainel.classList.add('is-aberto');
+    elPainel.setAttribute('role', 'dialog');
+    elPainel.setAttribute('aria-modal', 'true');
+    elFundo.classList.add('is-on');
+    document.documentElement.classList.add('travado');
+    try { history.pushState({ painel: true }, ''); } catch (e) { /* ignora */ }
+    setTimeout(function () { $('fechar').focus({ preventScroll: true }); }, 60);
+    marcarAtivo();
+  }
+  function fechar(peloVoltar) {
+    if (!aberto) return;
+    aberto = false;
+    elPainel.classList.remove('is-aberto');
+    elPainel.removeAttribute('role');
+    elPainel.removeAttribute('aria-modal');
+    elFundo.classList.remove('is-on');
+    document.documentElement.classList.remove('travado');
+    if (!peloVoltar && history.state && history.state.painel) { try { history.back(); } catch (e) { /* ignora */ } }
+    if (ultimoBotao) ultimoBotao.focus({ preventScroll: true });
+    marcarAtivo();
+  }
+  $('fechar').addEventListener('click', function () { fechar(false); });
+  elFundo.addEventListener('click', function () { fechar(false); });
+  window.addEventListener('popstate', function () { if (aberto) fechar(true); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && aberto) fechar(false); });
+
+  /* Arrastar pra baixo fecha o painel */
+  var y0 = null, dy = 0;
+  elCabeca.addEventListener('touchstart', function (e) {
+    if (!aberto || desktop.matches) return;
+    y0 = e.touches[0].clientY; dy = 0;
+    elPainel.style.transition = 'none';
+  }, { passive: true });
+  elCabeca.addEventListener('touchmove', function (e) {
+    if (y0 === null) return;
+    dy = Math.max(0, e.touches[0].clientY - y0);
+    elPainel.style.transform = 'translateY(' + dy + 'px)';
+  }, { passive: true });
+  function soltar() {
+    if (y0 === null) return;
+    y0 = null;
+    elPainel.style.transition = '';
+    elPainel.style.transform = '';
+    if (dy > 80) fechar(false);
+  }
+  elCabeca.addEventListener('touchend', soltar);
+  elCabeca.addEventListener('touchcancel', soltar);
+
+  desktop.addEventListener('change', function () {
+    if (desktop.matches) {
+      if (aberto) fechar(false);
+      if (!ativo) selecionar('sala', false);
+    }
+    marcarAtivo();
+  });
+
+  /* ---------- Interações dentro do painel ---------- */
+  elAbas.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-aba]');
+    if (!b) return;
+    ultimoBotao = elPlanta.querySelector('.comodo[data-room="' + b.dataset.aba + '"]');
+    selecionar(b.dataset.aba, false);
+  });
+  elCorpo.addEventListener('change', function (e) {
+    var t = e.target, card, it;
+    if (t.dataset.comprado) {
+      it = itemPorId(t.dataset.comprado);
+      if (t.checked) estado.comprados[it.id] = true; else delete estado.comprados[it.id];
+      card = t.closest('.item');
+      card.classList.toggle('is-comprado', t.checked);
+    } else if (t.dataset.escolha) {
+      it = itemPorId(t.dataset.escolha);
+      estado.escolhas[it.id] = t.value;
+      card = t.closest('.item');
+      card.querySelectorAll('.opcao').forEach(function (o) { o.classList.toggle('is-escolhida', o.dataset.opcao === t.value); });
+      var f = faixa(it);
+      card.querySelector('[data-preco]').textContent = faixaTexto(f[0], f[1]);
+      card.querySelector('[data-escolha-status]').textContent = textoEscolha(it);
+    } else {
+      return;
+    }
+    salvar();
+    renderResumo();
+    renderPlanta();
+    renderCabecaPainel();
+  });
+
+  /* ---------- Black Friday ---------- */
+  function blackFriday(ano) {
+    var dia1 = new Date(ano, 10, 1).getDay();
+    var primeiraQuinta = 1 + ((4 - dia1 + 7) % 7);
+    return new Date(ano, 10, primeiraQuinta + 22);
+  }
+  function renderBlackFriday() {
+    var hoje = new Date(); hoje.setHours(0, 0, 0, 0);
+    var bf = blackFriday(hoje.getFullYear());
+    if (bf < hoje) bf = blackFriday(hoje.getFullYear() + 1);
+    var dias = Math.round((bf - hoje) / 86400000);
+    var data = String(bf.getDate()).padStart(2, '0') + '/' + String(bf.getMonth() + 1).padStart(2, '0');
+    var txt = dias === 0 ? 'É hoje!' : dias === 1 ? 'É amanhã!' : 'Dia ' + data + ' · faltam ' + dias + ' dias';
+    $('dica-bf').textContent = txt;
+  }
+
+  /* ---------- Início ---------- */
+  $('ja-tem-lista').innerHTML = JA_TEM.map(function (t) { return '<li>' + t + '</li>'; }).join('');
+  $('ja-tem-contador').textContent = JA_TEM.length;
+  montarPlanta();
+  renderPlanta();
+  renderResumo();
+  renderBlackFriday();
+  selecionar('sala', false);
+})();
+</script>
+</body>
+</html>
