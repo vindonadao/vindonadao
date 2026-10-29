@@ -426,7 +426,7 @@ h1{font-size:clamp(34px, 9.5vw, 52px);font-weight:900;letter-spacing:-.025em;lin
             <rect x="86" y="16" width="38" height="74" rx="5"/>
             <rect x="91" y="21" width="28" height="11" rx="4"/>
             <polygon points="132,16 171,16 171,86 155,86 155,32 132,32"/>
-            <!-- área de serviço: tanque e lugar da lava e seca -->
+            <!-- área de serviço colada na cozinha: tanque e lugar da lava e seca -->
             <rect x="181" y="16" width="26" height="22" rx="3"/>
             <rect x="184" y="19" width="20" height="14" rx="2"/>
             <rect class="tracejado" x="181" y="134" width="30" height="30" rx="4"/>
@@ -450,7 +450,7 @@ h1{font-size:clamp(34px, 9.5vw, 52px);font-weight:900;letter-spacing:-.025em;lin
             <ellipse cx="69" cy="232" rx="8" ry="10"/>
             <rect x="64" y="272" width="56" height="14" rx="2"/>
             <ellipse cx="92" cy="279" rx="10" ry="4.5"/>
-            <!-- quarto do casal: armário claro, cama, escrivaninha embaixo da janela -->
+            <!-- quarto do casal: armário claro e cama -->
             <rect x="14" y="296" width="18" height="188" rx="2"/>
             <path d="M14 358 H32 M14 422 H32"/>
             <rect x="45" y="294" width="74" height="7" rx="3"/>
@@ -458,7 +458,6 @@ h1{font-size:clamp(34px, 9.5vw, 52px);font-weight:900;letter-spacing:-.025em;lin
             <rect x="51" y="305" width="29" height="14" rx="5"/>
             <rect x="84" y="305" width="29" height="14" rx="5"/>
             <path d="M46 336 H118"/>
-            <rect x="50" y="470" width="50" height="16" rx="2"/>
             <!-- sala: parede 3D com rack suspenso, sofá, mesa perto da janela -->
             <path class="textura" d="M343 214 V486"/>
             <rect x="328" y="250" width="14" height="140" rx="2"/>
@@ -480,8 +479,6 @@ h1{font-size:clamp(34px, 9.5vw, 52px);font-weight:900;letter-spacing:-.025em;lin
           <g class="portas">
             <path class="porta" d="M150 140 A30 30 0 0 0 120 170"/>
             <path class="porta-folha" d="M150 170 V140"/>
-            <path class="porta" d="M215 52 A30 30 0 0 1 245 22"/>
-            <path class="porta-folha" d="M245 52 H215"/>
             <path class="porta" d="M125 240 A30 30 0 0 1 95 210"/>
             <path class="porta-folha" d="M125 210 V240"/>
             <path class="porta" d="M108 457 A32 32 0 0 1 140 425"/>
@@ -491,13 +488,13 @@ h1{font-size:clamp(34px, 9.5vw, 52px);font-weight:900;letter-spacing:-.025em;lin
           </g>
 
           <g class="paredes">
-            <path class="parede-int" d="M10 170 H120 M150 170 H245 M175 10 V170 M245 10 V22 M245 52 V80 M245 130 V210 M10 210 H95 M125 210 H140 M180 210 H245 M140 210 V425 M140 457 V490 M10 290 H140"/>
+            <path class="parede-int" d="M10 170 H120 M150 170 H245 M175 10 V170 M245 130 V210 M10 210 H95 M125 210 H140 M180 210 H245 M140 210 V425 M140 457 V490 M10 290 H140"/>
             <path class="parede-ext" d="M350 420 V10 H10 V490 H350 V460"/>
           </g>
 
           <g class="cobogo">
-            <rect x="242" y="80" width="6" height="50"/>
-            <path d="M242 90 H248 M242 100 H248 M242 110 H248 M242 120 H248"/>
+            <rect x="242" y="70" width="6" height="60"/>
+            <path d="M242 80 H248 M242 90 H248 M242 100 H248 M242 110 H248 M242 120 H248"/>
           </g>
 
           <g class="janelas">
@@ -566,7 +563,7 @@ h1{font-size:clamp(34px, 9.5vw, 52px);font-weight:900;letter-spacing:-.025em;lin
       <article class="dica">
         <span class="dica-ico" aria-hidden="true">⚡</span>
         <h3>Voltagem</h3>
-        <p>Santos é 127 V (110). Geladeira, lava e seca e micro-ondas têm que ser 110.</p>
+        <p>Santos é 220 V. Geladeira, lava e seca e micro-ondas têm que ser 220 V.</p>
       </article>
       <article class="dica">
         <span class="dica-ico" aria-hidden="true">💸</span>
@@ -624,7 +621,7 @@ var FOTOS = {
 
   /* ---------- Dados ---------- */
   var LEMBRETES = {
-    volt:  '⚡ Tem que ser 127 V (110)',
+    volt:  '⚡ Tem que ser 220 V',
     medir: '📏 Meça o espaço antes de comprar',
     bf:    '🏷️ Costuma baixar na Black Friday',
     persiana: '🪟 O quarto já tem persiana. A blackout escurece de vez',
@@ -634,7 +631,7 @@ var FOTOS = {
   var FOTO_INFO = {
     f01: 'Sala e janela', f02: 'Sala e cozinha americana', f03: 'Rack suspenso e balcão',
     f04: 'Pia e janela da cozinha', f09: 'Cooktop e armários', f05: 'Balcão com cooktop e forno', f06: 'Cozinha vista de dentro',
-    f07: 'Armário embutido e escrivaninha', f08: 'Janela com persiana', f11: 'Escrivaninha em L e persiana', f12: 'Armário cinza e escrivaninha',
+    f07: 'Armário embutido claro', f08: 'Janela com persiana', f11: 'Escrivaninha em L e persiana', f12: 'Armário cinza e escrivaninha',
     f10: 'Banheiro'
   };
 
@@ -653,7 +650,7 @@ var FOTOS = {
       { id: 'geladeira', nome: 'Geladeira 1 porta frost free 300 L', emoji: '🧊', min: 1900, max: 2900, conf: true,
         url: 'https://www.amazon.com.br/geladeira-frost-free-300l/s?k=geladeira+frost+free+300l', lembretes: ['volt', 'medir', 'bf'] },
       { id: 'microondas', nome: 'Micro-ondas 20 L', emoji: '🍿', min: 430, max: 550, conf: true,
-        url: 'https://www.amazon.com.br/micro-ondas-20-litros-110v/s?k=micro-ondas+20+litros+110v', lembretes: ['volt'] },
+        url: 'https://www.amazon.com.br/micro-ondas-20-litros-220v/s?k=micro-ondas+20+litros+220v', lembretes: ['volt'] },
       { id: 'panelas', nome: 'Jogo de panelas antiaderente Tramontina, 10 peças', emoji: '🍳', min: 250, max: 250, conf: true,
         url: 'https://m.magazineluiza.com.br/busca/jogo+de+panelas+antiaderente/' },
       { id: 'jantar', nome: 'Aparelho de jantar 30 peças', emoji: '🍽️', min: 240, max: 270, conf: true,
@@ -700,7 +697,7 @@ var FOTOS = {
   }};
 
   var JA_TEM = [
-    '🚪 Guarda-roupas embutidos', '✏️ Escrivaninhas nos dois quartos', '🪟 Persianas nos quartos',
+    '🚪 Guarda-roupas embutidos', '✏️ Escrivaninha no quarto das crianças', '🪟 Persianas nos quartos',
     '🗄️ Armários da cozinha', '🔥 Cooktop, forno e coifa', '☕ Cafeteira', '🥤 Liquidificador',
     '🪵 Rack suspenso na sala', '💡 Luminárias na sala e na cozinha', '❄️ Ar-condicionado / ventilador',
     '🚿 Box de vidro no banheiro', '🛏️ Camas e roupa de cama das crianças', '👕 Ferro de passar', '🧽 Material de limpeza'
