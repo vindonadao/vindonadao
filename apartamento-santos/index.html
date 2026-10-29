@@ -124,15 +124,18 @@ h1{font-size:clamp(34px, 9.5vw, 52px);font-weight:900;letter-spacing:-.025em;lin
 .piso[data-room="casal"]{fill:#F3E7D4}
 .piso[data-room="banho"]{fill:#DCEAF0}
 .piso[data-room="criancas"]{fill:#ECE9E4}
+.piso--corredor{fill:#F3EDE3}
 .piso.is-completo{fill:#E0F2E5}
 .piso.is-hover{fill:#CDEAE3}
 .piso.is-ativo{fill:#BFE5DC}
 .anel{fill:none;stroke:var(--coral);stroke-width:2.5;opacity:0;transition:opacity .2s}
 .anel.is-ativo{opacity:1}
-.moveis rect,.moveis circle,.moveis ellipse{fill:rgba(255,255,255,.62);stroke:var(--movel);stroke-width:1.4}
+.moveis rect,.moveis circle,.moveis ellipse,.moveis polygon{fill:rgba(255,255,255,.62);stroke:var(--movel);stroke-width:1.4}
 .moveis path{fill:none;stroke:var(--movel);stroke-width:1.4;stroke-linecap:round}
 .moveis .tv{fill:var(--parede);stroke:none}
 .moveis .tracejado{fill:none;stroke-dasharray:3 3}
+.moveis .textura{fill:none;stroke:#B3C7C3;stroke-width:2.5;stroke-dasharray:1.5 4;stroke-linecap:round}
+.moveis .passaros{fill:none;stroke:var(--parede);stroke-width:1.2;stroke-linecap:round}
 .cobogo rect{fill:#E6F2F4;stroke:var(--parede);stroke-width:1.2}
 .cobogo path{fill:none;stroke:var(--parede);stroke-width:1}
 .porta{fill:none;stroke:#8FA6A2;stroke-width:1.3}
@@ -160,6 +163,8 @@ h1{font-size:clamp(34px, 9.5vw, 52px);font-weight:900;letter-spacing:-.025em;lin
 .chip-status{font-weight:800;font-size:clamp(10.5px, 3.2cqi, 13.5px);line-height:1.25;color:var(--coral-texto);text-wrap:balance}
 .chip-status.ok{color:var(--verde)}
 .chip-status.cinza{color:var(--cinza-texto)}
+.comodo--mini .chip{padding:4px 7px 5px}
+.comodo--mini .chip-nome{font-size:clamp(10px, 3cqi, 13px);font-weight:800}
 .comodo--pronto .chip{background:rgba(247,245,241,.97)}
 .comodo--pronto .chip-nome{color:var(--cinza-texto)}
 .comodo:hover .chip{transform:translate(-50%,-50%) scale(1.03)}
@@ -403,113 +408,125 @@ h1{font-size:clamp(34px, 9.5vw, 52px);font-weight:900;letter-spacing:-.025em;lin
       <div class="planta" id="planta">
         <svg viewBox="0 0 360 500" aria-hidden="true" focusable="false">
           <g class="pisos">
-            <rect class="piso" data-room="casal" x="10" y="10" width="190" height="180"/>
-            <rect class="piso" data-room="criancas" x="200" y="10" width="150" height="180"/>
-            <rect class="piso" data-room="banho" x="10" y="190" width="125" height="130"/>
-            <rect class="piso" data-room="cozinha" x="10" y="320" width="125" height="170"/>
-            <rect class="piso" data-room="sala" x="135" y="190" width="215" height="300"/>
+            <rect class="piso" data-room="criancas" x="10" y="10" width="165" height="160"/>
+            <rect class="piso" data-room="banho" x="175" y="10" width="70" height="160"/>
+            <rect class="piso" data-room="cozinha" x="245" y="10" width="105" height="200"/>
+            <rect class="piso piso--corredor" x="10" y="170" width="235" height="40"/>
+            <rect class="piso" data-room="banho" x="10" y="210" width="130" height="80"/>
+            <rect class="piso" data-room="casal" x="10" y="290" width="130" height="200"/>
+            <rect class="piso" data-room="sala" x="140" y="210" width="210" height="280"/>
           </g>
 
           <g class="moveis">
-            <!-- quarto do casal -->
-            <rect x="15" y="40" width="18" height="112" rx="2"/>
-            <path d="M15 96 H33"/>
-            <rect x="40" y="22" width="16" height="16" rx="3"/>
-            <rect x="150" y="22" width="16" height="16" rx="3"/>
-            <rect x="58" y="17" width="90" height="8" rx="3"/>
-            <rect x="60" y="23" width="86" height="92" rx="6"/>
-            <rect x="66" y="30" width="34" height="15" rx="5"/>
-            <rect x="106" y="30" width="34" height="15" rx="5"/>
-            <path d="M60 62 H146"/>
-            <rect x="174" y="60" width="20" height="54" rx="2"/>
-            <!-- quarto das crianças -->
-            <rect x="210" y="20" width="40" height="70" rx="5"/>
-            <rect x="216" y="26" width="28" height="12" rx="4"/>
-            <rect x="300" y="20" width="40" height="70" rx="5"/>
-            <rect x="306" y="26" width="28" height="12" rx="4"/>
-            <rect x="266" y="20" width="18" height="16" rx="3"/>
-            <!-- banheiro + área -->
-            <rect x="15" y="196" width="34" height="34" rx="2"/>
-            <path d="M15 196 L49 230 M49 196 L15 230"/>
-            <rect x="58" y="196" width="22" height="8" rx="2"/>
-            <ellipse cx="69" cy="215" rx="9" ry="11"/>
-            <rect x="58" y="286" width="28" height="28" rx="4"/>
-            <circle cx="72" cy="300" r="9"/>
-            <rect x="94" y="290" width="26" height="24" rx="3"/>
-            <!-- cozinha americana: balcão com cooktop virado pra sala, pia do outro lado -->
-            <rect x="50" y="325" width="110" height="22" rx="2"/>
-            <rect x="113" y="328" width="22" height="16" rx="2"/>
-            <circle cx="119" cy="333" r="2.6"/>
-            <circle cx="129" cy="333" r="2.6"/>
-            <circle cx="119" cy="340" r="2.6"/>
-            <circle cx="129" cy="340" r="2.6"/>
-            <rect class="tracejado" x="108" y="322" width="32" height="28" rx="4"/>
-            <rect x="14" y="463" width="117" height="23" rx="2"/>
-            <rect x="34" y="466" width="26" height="16" rx="3"/>
-            <circle cx="47" cy="474" r="2.5"/>
-            <!-- sala -->
-            <rect x="262" y="198" width="76" height="10" rx="2"/>
-            <rect class="tv" x="272" y="196" width="56" height="4" rx="1"/>
-            <rect x="278" y="224" width="34" height="16" rx="4"/>
-            <rect x="262" y="256" width="66" height="26" rx="5"/>
-            <rect x="256" y="278" width="78" height="10" rx="4"/>
-            <rect x="256" y="254" width="10" height="34" rx="4"/>
-            <rect x="324" y="254" width="10" height="34" rx="4"/>
-            <path d="M284 258 V280 M306 258 V280"/>
-            <circle cx="190" cy="415" r="22"/>
-            <rect x="182" y="382" width="16" height="10" rx="3"/>
-            <rect x="182" y="438" width="16" height="10" rx="3"/>
-            <rect x="157" y="407" width="10" height="16" rx="3"/>
-            <rect x="213" y="407" width="10" height="16" rx="3"/>
+            <!-- quarto das crianças: armário cinza, duas camas, escrivaninha em L -->
+            <rect x="14" y="16" width="18" height="148" rx="2"/>
+            <path d="M14 90 H32"/>
+            <rect x="40" y="16" width="38" height="74" rx="5"/>
+            <rect x="45" y="21" width="28" height="11" rx="4"/>
+            <rect x="86" y="16" width="38" height="74" rx="5"/>
+            <rect x="91" y="21" width="28" height="11" rx="4"/>
+            <polygon points="132,16 171,16 171,86 155,86 155,32 132,32"/>
+            <!-- área de serviço: tanque e lugar da lava e seca -->
+            <rect x="181" y="16" width="26" height="22" rx="3"/>
+            <rect x="184" y="19" width="20" height="14" rx="2"/>
+            <rect class="tracejado" x="181" y="134" width="30" height="30" rx="4"/>
+            <circle class="tracejado" cx="196" cy="149" r="9"/>
+            <!-- cozinha em corredor: pia na parede 3D, cooktop e forno do lado do cobogó, balcão pra sala -->
+            <rect x="326" y="16" width="20" height="172" rx="2"/>
+            <rect x="329" y="70" width="14" height="26" rx="3"/>
+            <circle cx="336" cy="83" r="2.5"/>
+            <rect x="249" y="64" width="22" height="128" rx="2"/>
+            <rect x="252" y="160" width="16" height="22" rx="2"/>
+            <circle cx="256.5" cy="166" r="2.4"/>
+            <circle cx="263.5" cy="166" r="2.4"/>
+            <circle cx="256.5" cy="176" r="2.4"/>
+            <circle cx="263.5" cy="176" r="2.4"/>
+            <rect class="tracejado" x="247" y="155" width="26" height="32" rx="4"/>
+            <rect x="249" y="192" width="40" height="16" rx="2"/>
+            <!-- banheiro: box com janela, vaso, gabinete -->
+            <rect x="14" y="214" width="36" height="36" rx="2"/>
+            <path d="M14 214 L50 250 M50 214 L14 250"/>
+            <rect x="58" y="214" width="22" height="7" rx="2"/>
+            <ellipse cx="69" cy="232" rx="8" ry="10"/>
+            <rect x="64" y="272" width="56" height="14" rx="2"/>
+            <ellipse cx="92" cy="279" rx="10" ry="4.5"/>
+            <!-- quarto do casal: armário claro, cama, escrivaninha embaixo da janela -->
+            <rect x="14" y="296" width="18" height="188" rx="2"/>
+            <path d="M14 358 H32 M14 422 H32"/>
+            <rect x="45" y="294" width="74" height="7" rx="3"/>
+            <rect x="46" y="299" width="72" height="96" rx="6"/>
+            <rect x="51" y="305" width="29" height="14" rx="5"/>
+            <rect x="84" y="305" width="29" height="14" rx="5"/>
+            <path d="M46 336 H118"/>
+            <rect x="50" y="470" width="50" height="16" rx="2"/>
+            <!-- sala: parede 3D com rack suspenso, sofá, mesa perto da janela -->
+            <path class="textura" d="M343 214 V486"/>
+            <rect x="328" y="250" width="14" height="140" rx="2"/>
+            <rect class="tv" x="324" y="290" width="4" height="60" rx="1"/>
+            <rect x="186" y="272" width="12" height="88" rx="4"/>
+            <rect x="196" y="280" width="28" height="72" rx="5"/>
+            <rect x="186" y="270" width="38" height="10" rx="4"/>
+            <rect x="186" y="352" width="38" height="10" rx="4"/>
+            <path d="M198 304 H224 M198 328 H224"/>
+            <rect x="252" y="298" width="22" height="38" rx="4"/>
+            <circle cx="200" cy="432" r="20"/>
+            <rect x="192" y="402" width="16" height="9" rx="3"/>
+            <rect x="192" y="453" width="16" height="9" rx="3"/>
+            <rect x="170" y="424" width="9" height="16" rx="3"/>
+            <rect x="221" y="424" width="9" height="16" rx="3"/>
+            <path class="passaros" d="M192 221 q3 -4 6 0 q3 -4 6 0 M213 225 q3 -4 6 0 q3 -4 6 0 M230 220 q2.5 -3.5 5 0 q2.5 -3.5 5 0"/>
           </g>
 
           <g class="portas">
-            <path class="porta" d="M194 156 A34 34 0 0 0 160 190"/>
-            <path class="porta-folha" d="M194 190 V156"/>
-            <path class="porta" d="M246 156 A34 34 0 0 0 212 190"/>
-            <path class="porta-folha" d="M246 190 V156"/>
-            <path class="porta" d="M103 232 A32 32 0 0 1 135 200"/>
-            <path class="porta-folha" d="M135 232 H103"/>
-            <path class="porta" d="M18 292 A28 28 0 0 1 46 320"/>
-            <path class="porta-folha" d="M18 320 V292"/>
-            <path class="porta" d="M335 450 A40 40 0 0 0 295 490"/>
-            <path class="porta-folha" d="M335 490 V450"/>
+            <path class="porta" d="M150 140 A30 30 0 0 0 120 170"/>
+            <path class="porta-folha" d="M150 170 V140"/>
+            <path class="porta" d="M215 52 A30 30 0 0 1 245 22"/>
+            <path class="porta-folha" d="M245 52 H215"/>
+            <path class="porta" d="M125 240 A30 30 0 0 1 95 210"/>
+            <path class="porta-folha" d="M125 210 V240"/>
+            <path class="porta" d="M108 457 A32 32 0 0 1 140 425"/>
+            <path class="porta-folha" d="M140 457 H108"/>
+            <path class="porta" d="M310 460 A40 40 0 0 1 350 420"/>
+            <path class="porta-folha" d="M350 460 H310"/>
           </g>
 
           <g class="paredes">
-            <path class="parede-int" d="M10 190 H160 M194 190 H212 M246 190 H350 M200 10 V190 M135 190 V200 M135 232 V320 M135 450 V490 M10 320 H18 M46 320 H52 M92 320 H135"/>
-            <path class="parede-ext" d="M295 490 H10 V10 H350 V490 H335"/>
+            <path class="parede-int" d="M10 170 H120 M150 170 H245 M175 10 V170 M245 10 V22 M245 52 V80 M245 130 V210 M10 210 H95 M125 210 H140 M180 210 H245 M140 210 V425 M140 457 V490 M10 290 H140"/>
+            <path class="parede-ext" d="M350 420 V10 H10 V490 H350 V460"/>
           </g>
 
           <g class="cobogo">
-            <rect x="52" y="317" width="40" height="6"/>
-            <path d="M60 317 V323 M68 317 V323 M76 317 V323 M84 317 V323"/>
+            <rect x="242" y="80" width="6" height="50"/>
+            <path d="M242 90 H248 M242 100 H248 M242 110 H248 M242 120 H248"/>
           </g>
 
           <g class="janelas">
-            <rect class="janela" x="60" y="6.5" width="90" height="7"/>
-            <path class="janela-vidro" d="M60 10 H150"/>
-            <rect class="janela" x="245" y="6.5" width="70" height="7"/>
-            <path class="janela-vidro" d="M245 10 H315"/>
-            <rect class="janela" x="346.5" y="300" width="7" height="110"/>
-            <path class="janela-vidro" d="M350 300 V410"/>
-            <rect class="janela" x="6.5" y="370" width="7" height="60"/>
-            <path class="janela-vidro" d="M10 370 V430"/>
-            <rect class="janela" x="6.5" y="245" width="7" height="30"/>
-            <path class="janela-vidro" d="M10 245 V275"/>
+            <rect class="janela" x="50" y="6.5" width="70" height="7"/>
+            <path class="janela-vidro" d="M50 10 H120"/>
+            <rect class="janela" x="190" y="6.5" width="40" height="7"/>
+            <path class="janela-vidro" d="M190 10 H230"/>
+            <rect class="janela" x="270" y="6.5" width="60" height="7"/>
+            <path class="janela-vidro" d="M270 10 H330"/>
+            <rect class="janela" x="6.5" y="220" width="7" height="34"/>
+            <path class="janela-vidro" d="M10 220 V254"/>
+            <rect class="janela" x="50" y="486.5" width="65" height="7"/>
+            <path class="janela-vidro" d="M50 490 H115"/>
+            <rect class="janela" x="185" y="486.5" width="110" height="7"/>
+            <path class="janela-vidro" d="M185 490 H295"/>
           </g>
 
           <g class="aneis">
-            <rect class="anel" data-room="casal" x="18" y="18" width="174" height="164" rx="10"/>
-            <rect class="anel" data-room="criancas" x="208" y="18" width="134" height="164" rx="10"/>
-            <rect class="anel" data-room="banho" x="18" y="198" width="109" height="114" rx="10"/>
-            <rect class="anel" data-room="cozinha" x="18" y="328" width="109" height="154" rx="10"/>
-            <rect class="anel" data-room="sala" x="143" y="198" width="199" height="284" rx="10"/>
+            <rect class="anel" data-room="criancas" x="16" y="16" width="153" height="148" rx="10"/>
+            <rect class="anel" data-room="banho" x="181" y="16" width="58" height="148" rx="10"/>
+            <rect class="anel" data-room="cozinha" x="251" y="16" width="93" height="188" rx="10"/>
+            <rect class="anel" data-room="banho" x="16" y="216" width="118" height="68" rx="10"/>
+            <rect class="anel" data-room="casal" x="16" y="296" width="118" height="188" rx="10"/>
+            <rect class="anel" data-room="sala" x="146" y="216" width="198" height="268" rx="10"/>
           </g>
         </svg>
       </div>
 
-      <p class="planta-nota">Desenho ilustrativo, fora de escala.</p>
+      <p class="planta-nota">Planta montada a partir das fotos do anúncio. Medidas aproximadas.</p>
     </section>
 
     <aside class="painel" id="painel" aria-labelledby="painel-titulo">
@@ -617,10 +634,9 @@ var FOTOS = {
   var FOTO_INFO = {
     f01: 'Sala e janela', f02: 'Sala e cozinha americana', f03: 'Rack suspenso e balcão',
     f04: 'Pia e janela da cozinha', f09: 'Cooktop e armários', f05: 'Balcão com cooktop e forno', f06: 'Cozinha vista de dentro',
-    f07: 'Quarto 1 · armário claro', f08: 'Quarto 1 · persiana', f11: 'Quarto 2 · escrivaninha em L', f12: 'Quarto 2 · armário cinza',
+    f07: 'Armário embutido e escrivaninha', f08: 'Janela com persiana', f11: 'Escrivaninha em L e persiana', f12: 'Armário cinza e escrivaninha',
     f10: 'Banheiro'
   };
-  var FOTOS_QUARTOS = ['f07', 'f08', 'f11', 'f12'];
 
   var COMODOS = [
     { id: 'sala', nome: 'Sala', aba: 'Sala', emoji: '🛋️', fotos: ['f01', 'f02', 'f03'], itens: [
@@ -647,7 +663,7 @@ var FOTOS = {
       { id: 'utensilios', nome: 'Copos, escorredor, tábua e conchas', emoji: '🥄', min: 300, max: 500, conf: false, url: null },
       { id: 'lixeira', nome: 'Lixeira', emoji: '🗑️', min: 50, max: 50, conf: false, url: null }
     ]},
-    { id: 'casal', nome: 'Quarto do casal', aba: 'Casal', emoji: '🛏️', fotos: FOTOS_QUARTOS, fotosNota: 'Fotos dos dois quartos.', itens: [
+    { id: 'casal', nome: 'Quarto do casal', aba: 'Casal', emoji: '🛏️', fotos: ['f07', 'f08'], itens: [
       { id: 'cama', nome: 'Cama box casal com colchão de molas ensacadas', emoji: '🛏️', min: 900, max: 1330, conf: true,
         url: 'https://www.esplanadamoveis.com.br/produtos/cama-box-casal-colchao-molas-ensacadas-real-138x188x65cm-suporta-ate-130kg-por-pessoa-btq59/' },
       { id: 'jogo-cama', nome: 'Jogo de cama casal 4 peças, percal 300 fios', qtd: '2 unidades', emoji: '🛌', min: 172, max: 172, conf: true,
@@ -657,7 +673,7 @@ var FOTOS = {
       { id: 'cortina-casal', nome: 'Cortina blackout', emoji: '🪟', min: 120, max: 120, conf: true,
         url: 'https://casanix.com.br/', lembretes: ['persiana'] }
     ]},
-    { id: 'criancas', nome: 'Quarto das crianças', aba: 'Crianças', emoji: '🧸', pronto: true, fotos: FOTOS_QUARTOS, fotosNota: 'Fotos dos dois quartos.', itens: [
+    { id: 'criancas', nome: 'Quarto das crianças', aba: 'Crianças', emoji: '🧸', pronto: true, fotos: ['f11', 'f12'], itens: [
       { id: 'cortina-criancas', nome: 'Cortina blackout', emoji: '🪟', min: 120, max: 120, conf: true,
         url: 'https://casanix.com.br/', lembretes: ['persiana'] }
     ]},
@@ -675,11 +691,12 @@ var FOTOS = {
 
   /* Posição de cada cômodo na planta (unidades do viewBox 360 × 500) e onde fica a etiqueta */
   var PLANTA = { w: 360, h: 500, comodos: {
-    casal:    { x: 10,  y: 10,  w: 190, h: 180, lx: 100, ly: 150, rotulo: 'Quarto do casal' },
-    criancas: { x: 200, y: 10,  w: 150, h: 180, lx: 275, ly: 128, rotulo: 'Quarto das crianças' },
-    banho:    { x: 10,  y: 190, w: 125, h: 130, lx: 72,  ly: 258, rotulo: 'Banheiro + área' },
-    cozinha:  { x: 10,  y: 320, w: 125, h: 170, lx: 72,  ly: 398, rotulo: 'Cozinha' },
-    sala:     { x: 135, y: 190, w: 215, h: 300, lx: 248, ly: 342, rotulo: 'Sala' }
+    criancas: [{ x: 10,  y: 10,  w: 165, h: 160, lx: 92,  ly: 128, rotulo: 'Quarto das crianças' }],
+    cozinha:  [{ x: 245, y: 10,  w: 105, h: 200, lx: 298, ly: 112, rotulo: 'Cozinha' }],
+    banho:    [{ x: 10,  y: 210, w: 130, h: 80,  lx: 75,  ly: 251, rotulo: 'Banheiro + área' },
+               { x: 175, y: 10,  w: 70,  h: 160, lx: 210, ly: 96,  rotulo: 'Área de serviço', emoji: '🧺', mini: true }],
+    casal:    [{ x: 10,  y: 290, w: 130, h: 200, lx: 76,  ly: 432, rotulo: 'Quarto do casal' }],
+    sala:     [{ x: 140, y: 210, w: 210, h: 280, lx: 268, ly: 392, rotulo: 'Sala' }]
   }};
 
   var JA_TEM = [
@@ -761,28 +778,29 @@ var FOTOS = {
   function pct(v, total) { return (v / total * 100) + '%'; }
   function montarPlanta() {
     COMODOS.forEach(function (cm) {
-      var g = PLANTA.comodos[cm.id];
-      var b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'comodo' + (cm.pronto ? ' comodo--pronto' : '');
-      b.dataset.room = cm.id;
-      b.style.left = pct(g.x, PLANTA.w);
-      b.style.top = pct(g.y, PLANTA.h);
-      b.style.width = pct(g.w, PLANTA.w);
-      b.style.height = pct(g.h, PLANTA.h);
-      b.innerHTML = '<span class="chip" style="left:' + pct(g.lx - g.x, g.w) + ';top:' + pct(g.ly - g.y, g.h) + '">' +
-        '<span class="chip-nome">' + cm.emoji + ' ' + g.rotulo + '</span><span class="chip-status-wrap"></span></span>';
-      b.addEventListener('click', function () { selecionar(cm.id, true, b); });
-      b.addEventListener('mouseenter', function () { piso(cm.id).classList.add('is-hover'); });
-      b.addEventListener('mouseleave', function () { piso(cm.id).classList.remove('is-hover'); });
-      elPlanta.appendChild(b);
+      PLANTA.comodos[cm.id].forEach(function (g) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'comodo' + (cm.pronto ? ' comodo--pronto' : '') + (g.mini ? ' comodo--mini' : '');
+        b.dataset.room = cm.id;
+        b.style.left = pct(g.x, PLANTA.w);
+        b.style.top = pct(g.y, PLANTA.h);
+        b.style.width = pct(g.w, PLANTA.w);
+        b.style.height = pct(g.h, PLANTA.h);
+        b.innerHTML = '<span class="chip" style="left:' + pct(g.lx - g.x, g.w) + ';top:' + pct(g.ly - g.y, g.h) + '">' +
+          '<span class="chip-nome">' + (g.emoji || cm.emoji) + ' ' + g.rotulo + '</span>' +
+          (g.mini ? '' : '<span class="chip-status-wrap"></span>') + '</span>';
+        b.addEventListener('click', function () { selecionar(cm.id, true, b); });
+        b.addEventListener('mouseenter', function () { pisos(cm.id).forEach(function (el) { el.classList.add('is-hover'); }); });
+        b.addEventListener('mouseleave', function () { pisos(cm.id).forEach(function (el) { el.classList.remove('is-hover'); }); });
+        elPlanta.appendChild(b);
+      });
     });
   }
-  function piso(id) { return elPlanta.querySelector('.piso[data-room="' + id + '"]'); }
+  function pisos(id) { return elPlanta.querySelectorAll('.piso[data-room="' + id + '"]'); }
   function renderPlanta() {
     COMODOS.forEach(function (cm) {
       var c = contas(cm.itens), falta = c.total - c.feitos;
-      var b = elPlanta.querySelector('.comodo[data-room="' + cm.id + '"]');
       var status, rotulo;
       if (cm.pronto) {
         status = '<span class="chip-status cinza">Já está tudo pronto aqui</span>' +
@@ -795,9 +813,12 @@ var FOTOS = {
         status = '<span class="chip-status">' + faltamTexto(falta) + '</span>';
         rotulo = cm.nome + ': ' + faltamTexto(falta).toLowerCase();
       }
-      b.querySelector('.chip-status-wrap').outerHTML = '<span class="chip-status-wrap" style="display:contents">' + status + '</span>';
-      b.setAttribute('aria-label', rotulo);
-      piso(cm.id).classList.toggle('is-completo', falta === 0 && !cm.pronto);
+      elPlanta.querySelectorAll('.comodo[data-room="' + cm.id + '"]').forEach(function (b) {
+        var wrap = b.querySelector('.chip-status-wrap');
+        if (wrap) wrap.outerHTML = '<span class="chip-status-wrap" style="display:contents">' + status + '</span>';
+        b.setAttribute('aria-label', rotulo);
+      });
+      pisos(cm.id).forEach(function (el) { el.classList.toggle('is-completo', falta === 0 && !cm.pronto); });
     });
   }
   function marcarAtivo() {
